@@ -16,11 +16,16 @@ public class Greeter {
         // are both void and does not accept any arguments, the lambda expression is valid.
         Greeting lambdaGreeting = () -> System.out.println("Hello World");
 
-        // Basic object-oriented programming where the HelloWorldGreeting object calls the perform method
-        helloWorldGreeting.perform();
+        // Inline implementation of an Interface
+        // Also known as an Anonymous Inner Class
+        Greeting innerClassGreeting = new Greeting() {
+            public void perform() {
+                System.out.println("Hello World!");
+            }
+        };
 
         // This is how lambda expressions are executed.
         // By calling the interface method, it acts as if it were an instance of a class.
-        lambdaGreeting.perform();
+        innerClassGreeting.perform();
     }
 }
