@@ -2,27 +2,16 @@
 public class TypeInferenceExample {
 
     public static void main(String[] args) {
-        // The lambda expression's value is the length of the String passed as an argument.
-        StringLengthLambda myLambda = (String s) -> s.length();
 
-        // However, because of TypeInferencing
-        // The compiler can infer from the method in the interface StringLength Lambda
-        // that the argument passed in is of type String
-        // and thus can be removed from the lambda expression
-        StringLengthLambda typeInferredLambda = (s) -> s.length();
+        // Type Inference
+        // Since the argument of the printLambda method is of type StringLengthLambda
+        // and the lambda expression signature matches that of getLength(String s) in the interface
+        // The compiler infers the input argument type is, the return type is, etc.
+        printLambda(s -> s.length());
+    }
 
-        // Lastly, if there is only one input argument to the lambda expression
-        // then the parenthesis can be omitted
-        StringLengthLambda myTypeInferredLambda = s -> s.length();
-
-        // myLambda's value = 12
-        System.out.println(myLambda.getLength("Hello Lambda"));
-
-        // typeInferredLambda's value = 11
-        System.out.println(typeInferredLambda.getLength("Hello World"));
-
-        // myTypeInferredLambda's value = 9
-        System.out.println(myTypeInferredLambda.getLength("Josh Chen"));
+    public static void printLambda (StringLengthLambda l) {
+        System.out.println(l.getLength("Hello Lambda"));
     }
 
     interface StringLengthLambda {
