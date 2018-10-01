@@ -11,12 +11,18 @@ public class TypeInferenceExample {
         // and thus can be removed from the lambda expression
         StringLengthLambda typeInferredLambda = (s) -> s.length();
 
+        // Lastly, if there is only one input argument to the lambda expression
+        // then the parenthesis can be omitted
+        StringLengthLambda myTypeInferredLambda = s -> s.length();
 
-        // myLambda's value
+        // myLambda's value = 12
         System.out.println(myLambda.getLength("Hello Lambda"));
 
-        // typeInferredLambda's value
+        // typeInferredLambda's value = 11
         System.out.println(typeInferredLambda.getLength("Hello World"));
+
+        // myTypeInferredLambda's value = 9
+        System.out.println(myTypeInferredLambda.getLength("Josh Chen"));
     }
 
     interface StringLengthLambda {
